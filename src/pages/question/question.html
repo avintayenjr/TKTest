@@ -14,5 +14,25 @@
 
 
 <ion-content padding>
+  <ion-slides pager paginationType="fraction">
+    <ion-slide *ngFor="let question of questions">
+      <ion-card>
+        <ion-card-header>
+          Option {{"A"}}
+        </ion-card-header>
+        <ion-card-content>
+          {{"Some text about something or another A."}}
+        </ion-card-content>
+      </ion-card>
+      <ion-card>
+        <ion-card-header>
+          Option {{"B"}}
+        </ion-card-header>
+        <ion-card-content>
+          {{"Some text about something or another B."}}
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
 
 </ion-content>
