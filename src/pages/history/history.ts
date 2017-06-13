@@ -1,35 +1,33 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { LobbyPage } from '../lobby/lobby';
 import { QuestionPage } from '../question/question';
-import { HistoryPage } from '../history/history';
 
 /**
- * Generated class for the LobbyPage page.
+ * Generated class for the HistoryPage page.
  *
  * See http://ionicframework.com/docs/components/#navigation for more info
  * on Ionic pages and navigation.
  */
+ 
+
+
 @IonicPage()
 @Component({
-  selector: 'page-lobby',
-  templateUrl: 'lobby.html',
+  selector: 'page-history',
+  templateUrl: 'history.html',
 })
-export class LobbyPage {
+export class HistoryPage {
+ 
+  tests = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LobbyPage');
+    console.log('ionViewDidLoad HistoryPage');
+    this.tests = JSON.parse(window.localStorage.getItem("tests")) || [];
+    console.log(this.tests);
   }
-  
-  takeTest() {
-    this.navCtrl.push(QuestionPage);
-  }
-  
-  seeHistory() {
-    this.navCtrl.push(HistoryPage);
-  }
-
 
 }
