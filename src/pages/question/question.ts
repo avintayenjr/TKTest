@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, NavParams, Slides } from 'ionic-angular';
+import { LobbyPage } from '../lobby/lobby';
 
 /**
  * Generated class for the QuestionPage page.
@@ -427,19 +428,54 @@ let apiQuestions = [{
   
 }]
  
-@IonicPage()
 @Component({
   selector: 'page-question',
   templateUrl: 'question.html',
 })
 export class QuestionPage {
-  questions: any = apiQuestions;
+  @ViewChild(Slides) slides: Slides;
+  questions: any = [];
+  testAnswers: any = {};
+  
   
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+  
+    for(let singleQuestion of apiQuestions) {
+      if(!this.questions[singleQuestion.Question_Number - 1]) 
+        this.questions[singleQuestion.Question_Number - 1] = {}
+      this.questions[singleQuestion.Question_Number - 1][singleQuestion.Answer_ID] = singleQuestion;
+    }
+    
   }
+    
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad QuestionPage');
+    this.slides.lockSwipes(false);
+    this.testAnswers = {
+      "Avoiding": 0,
+      "Accommodating": 0,
+      "Compromising": 0,
+      "Competing": 0,
+      "Collaborating": 0
+    }
   }
+  
+  nextSlide(option) {
+      this.testAnswers[option.Style]++;
+      if(this.slides.getActiveIndex() + 1 !== 30){
+        this.slides.lockSwipes(false);
+        this.slides.slideTo(this.slides.getActiveIndex() +1);
+        this.slides.lockSwipes(true);
+      } else {
+        //finished the test, move onto the results
+        let tests: any = JSON.parse(window.localStorage.getItem("tests")) || [];
+        this.testAnswers.createDate = new Date().toISOString();
+        tests.push(this.testAnswers);
+        window.localStorage.setItem("tests", JSON.stringify(tests));
+        this.navCtrl.setRoot(LobbyPage);
+      }
+     
+    }
 
 }

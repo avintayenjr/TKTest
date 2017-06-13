@@ -16,20 +16,20 @@
 <ion-content padding>
   <ion-slides pager paginationType="fraction">
     <ion-slide *ngFor="let question of questions">
-      <ion-card>
+      <ion-card (click)="nextSlide(question.A)">
         <ion-card-header>
-          Option {{"A"}}
+          Option {{question.A.Answer_ID}}
         </ion-card-header>
         <ion-card-content>
-          {{"Some text about something or another A."}}
+          {{question.A.Text}}
         </ion-card-content>
       </ion-card>
-      <ion-card>
+      <ion-card (click)="nextSlide(question.B)">
         <ion-card-header>
-          Option {{"B"}}
+          Option {{question.B.Answer_ID}}
         </ion-card-header>
         <ion-card-content>
-          {{"Some text about something or another B."}}
+          {{question.B.Text}}
         </ion-card-content>
       </ion-card>
     </ion-slide>
