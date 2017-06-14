@@ -7,13 +7,15 @@ import { MyApp } from './app.component';
 import { LobbyPage } from '../pages/lobby/lobby';
 import { QuestionPage } from '../pages/question/question';
 import { HistoryPage } from '../pages/history/history';
+import { ResultsPage } from '../pages/results/results';
 
 
 let injections: any [] = [
     MyApp,
     LobbyPage,
     QuestionPage,
-    HistoryPage
+    HistoryPage,
+    ResultsPage
   ]
 
 @NgModule({

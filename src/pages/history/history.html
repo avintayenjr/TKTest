@@ -15,7 +15,7 @@
 
 <ion-content padding>
   <ion-list>
-    <ion-item *ngFor="let test of tests; let $index = index;">
+    <ion-item *ngFor="let test of tests; let $index = index;" (click)="goToResult(test)">
       Test {{$index + 1}}
       <ion-note style="float: right;">
         {{test.createDate | date:'dd-MMM-yyyy hh:mm a'}}
