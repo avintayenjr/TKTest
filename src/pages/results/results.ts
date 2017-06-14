@@ -20,6 +20,7 @@ export class ResultsPage {
   @ViewChild('barCanvas') barCanvas;
   test: any = {};
   barChart: any;
+  showHome: boolean = false;
   
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
@@ -29,7 +30,7 @@ export class ResultsPage {
     console.log('ionViewDidLoad ResultsPage');
     
     this.test = this.navParams.get("test");
-    
+    this.showHome = this.navParams.get('showHome');
     this.barChart = new Chart(this.barCanvas.nativeElement, {
       type: 'bar',
       data: {
@@ -82,7 +83,11 @@ export class ResultsPage {
       }
       }
     });
-    
   }
+  
+    toLobby() {
+      this.navCtrl.push(LobbyPage);
+    }
+    
 
 }
