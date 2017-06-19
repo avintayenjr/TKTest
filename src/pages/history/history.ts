@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { LobbyPage } from '../lobby/lobby';
-import { QuestionPage } from '../question/question';
+//import { LobbyPage } from '../lobby/lobby';
+//import { QuestionPage } from '../question/question';
 import { ResultsPage } from '../results/results';
 
 /**

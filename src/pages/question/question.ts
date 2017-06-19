@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams, Slides } from 'ionic-angular';
-import { LobbyPage } from '../lobby/lobby';
+//import { LobbyPage } from '../lobby/lobby';
 import { ResultsPage } from '../results/results';
 
 /**

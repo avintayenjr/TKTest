@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LobbyPage } from '../lobby/lobby';
-import { HistoryPage } from '../history/history';
-import { QuestionPage } from '../question/question';
+//import { HistoryPage } from '../history/history';
+//import { QuestionPage } from '../question/question';
 import Chart from 'chart.js';
 /**
  * Generated class for the ResultsPage page.
