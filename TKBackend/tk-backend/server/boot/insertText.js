@@ -5,11 +5,11 @@ module.exports = function(app) {
 	var Question = app.models.Questions;
 
 	Question.destroyAll();
-
-	jsonArr.forEach(function(questionDict){
-		Question.create(questionDict, function(err, record) {
-			if (err) return console.log(err);
+		Question.upsert(jsonArr, function(err, object){
+			if (err){
+				return console.log(err);
+			}	
 		});
-	});
 	console.log("Questions inserted successfully");
 };
+
